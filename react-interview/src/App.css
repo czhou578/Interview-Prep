@@ -1,3 +1,12 @@
 * {
-  background-color: black;
+  background-color: tan;
+}
+
+.hello {
+  max-width: 800px;
+}
+
+pre {
+  white-space: pre-wrap;
+
 }
