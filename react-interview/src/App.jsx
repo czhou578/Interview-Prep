@@ -1,46 +1,77 @@
 import './App.css';
 import * as React from "react"
+import axios from 'axios';
 
-const nameCard = (props) => {
-  const {fetched} = props
-  console.log('fetched: ' + fetched)
+const Card = (props) => {
+  const {fetchedData} = props
+  console.log("hellowwww: " + fetchedData.results);
 
   return (
-    <div>
-
+    <div className="brits">
+      {fetchedData ? <div><p>{fetchedData.results}</p> </div> : null}
     </div>
   )
 }
 
-function App() {
+// const returnUserName = (object) => {
+//   return object.results
+// }
 
+const fetchData = async () => {
+  return axios.get('https://randomuser.me/api').then((data) => {
+    return JSON.stringify(data, null, 2)
+  })
+}
+
+const retrieveData = async () => {
+  return axios.get('https://randomuser.me/api').then((data) => {
+    return data
+  })
+  // return 
+}
+
+function App() {
+  
   const [counter, setCounter] = React.useState(0)
   const [fetched, setFetched] = React.useState(null)
-  const axios = require('axios');
-
+  const [firstName, setFirstName] = React.useState(null)
+  
   React.useEffect(() => {
-    getAPI()
-  }, [])
-
-  function getAPI() {
-    axios.get('https://randomuser.me/api').then(function({data}) {
-      let array = []
-      array.push(JSON.stringify(data))
-      setFetched(array)
+    fetchData().then((data) => {
+      setFetched(data)
+      // setFirstName(data.results)
     })
-  }
+  }, [])
+  
+  React.useEffect(() => {
+    retrieveData().then((data) => {
+      setFirstName(data.results)
+    })
+  })
+  
+  // function getAPI() {
+  //   axios.get('https://randomuser.me/api').then(function({data}) {
+  //     let array = []
+  //     array.push(JSON.stringify(data))
+  //     setFetched(array)
+  
+  //   }).catch((err) => {
+  //     console.log(err);
+  //   })
+  // }
 
   return (
     <div className="App">
       <div>
         <button onClick={() => setCounter(counter + 1)}> Click Me </button>
-        <button onClick={() => getAPI()}>Fetch Data</button>
+        <button onClick={() => fetchData()}>Fetch Data</button>
         <h1>{counter}</h1>
         <div className="hello">
           <pre>{fetched}</pre>
         </div>
         <div>
-          <nameCard fetchedData={fetched}/>
+          HEllo, this is great
+          {firstName}
         </div>
       </div>
     </div>
