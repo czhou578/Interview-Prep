@@ -3,12 +3,6 @@ import * as React from "react"
 import axios from 'axios';
 import Table from './Table'
 
-const getData = () => {
-  return axios.get('https://randomuser.me/api').then(({data}) => {
-    return data.results
-  })
-}
-
 const increasePageNumber = (pageNum) => {
   return axios.get(`https://randomuser.me/api?page=${pageNum}`).then(({data}) => {
     return data.results
@@ -28,7 +22,7 @@ function App() {
   function getUsers() {
     setPageNumber(pageNumber + 1)
       increasePageNumber(pageNumber).then((data) => {
-      console.log(data)
+      // console.log('part one data: ' + JSON.stringify(data))
       const array = [...userData, ...data]
       setFetchedUserData(array)
     })
