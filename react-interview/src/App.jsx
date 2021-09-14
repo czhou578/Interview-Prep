@@ -1,6 +1,7 @@
 import './App.css';
 import * as React from "react"
 import axios from 'axios';
+import Table from './Table'
 
 const getData = () => {
   return axios.get('https://randomuser.me/api').then(({data}) => {
@@ -49,7 +50,6 @@ function App() {
         <div>
           <div>
             <pre>
-              {/* {JSON.stringify(userData, null, 2)} */}
             </pre>
           </div>
         </div>
@@ -65,6 +65,7 @@ function App() {
         </div>
 
         <div>
+          <Table />
         </div>
       </div>
     </div>
@@ -72,17 +73,3 @@ function App() {
 }
 
 export default App;
-
-
-// const fetchData = (pageNum) => {
-//   return axios.get(`https://randomuser.me/api?page=${pageNum}`).then(({data}) => {
-//     return data
-//   })
-// }
-
-// const getFullUserName = (element) => {
-//   // let userInfo
-//   const {name: {first, last}} = element
-
-//   return `${first} ${last}`
-// }
