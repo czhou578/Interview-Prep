@@ -37,32 +37,65 @@ const setHeaders = (obj) => {
 }
 
 const sortingEnum = {
-  DEFAULT: 'DEFAULT',
+  UNSORTED: 'UNSORTED',
   ASCENDING: 'ASCENDING',
   DESCENDING: 'DESCENDING'
 }
+
+const sortData = (data, sortKey, sortDirection) => {
+  data.sort((a, b) => {
+    const relevantValueA = a[sortKey]
+    const relevantValueB = b[sortKey]
+
+    if (sortDirection === sortingEnum.UNSORTED || sortDirection === sortingEnum.ASCENDING) {
+      if (relevantValueA < relevantValueB) return -1
+      if (relevantValueA > relevantValueB) return 1
+      return 0
+
+    } else {
+      if (relevantValueA > relevantValueB) return -1
+      if (relevantValueA < relevantValueB) return 1
+      return 0
+    }
+  })
+}
+
+const getNextSortingDirection = (sortingDirection) => {
+  if (sortingDirection === sortingEnum.UNSORTED || sortingDirection === sortingEnum.ASCENDING) {
+    return sortingEnum.DESCENDING
+  }
+
+  return sortingEnum.ASCENDING
+
+}
+
+const getFilteredRows = (rows, filterKey) => {
+  return rows.filter((row) => { 
+    return Object.values(row).some(s => ("" + s).toLowerCase().includes(filterKey))
+  }
+  )}
 
 
 export default function Table(props) {
   const [people, setPeople] = useState([])
   const [locationHeaders, setLocationHeaders] = useState([])
   const [location, setLocation] = useState([])
-  const [sortingDirection, setSortingDirections] = useState()
+  const [sortingDirection, setSortingDirections] = useState({})
+  const [inputFieldValue, setInputFieldValue] = useState('')
 
   useEffect(() => {
     fetchData().then((data) => {
       setPeople(data)
-
-      // console.log('location : ' + JSON.stringify(data[0].location));
-
       setLocationHeaders(setHeaders([data[0].location]))
-      setLocation(flattenObject(data.map((element) => element.location)))
-      // setLocationHeaders(data[0].location)
-      // setLocation(flattenObject(data.map((element) => element.location)))
+      const ourFlattenedLocations = flattenObject(data.map((element) => element.location))
+      setLocation(ourFlattenedLocations)
+ 
+      const ourSortingDirections = {}
+      for (const header of locationHeaders) {
+        ourSortingDirections[header] = sortingEnum.UNSORTED
+      }
 
-      // setLocation(flattenObject(people[0].location))
-
-      // flattenObject(location)
+      setSortingDirections(ourSortingDirections)
     })
   }, [])
 
@@ -70,19 +103,16 @@ export default function Table(props) {
     console.log(sortKey);
     const newFlattenedLocations = {
       data: [...location]
-      // ...location
     }
 
-    newFlattenedLocations.data.sort((a, b) => {
-      const relevantValueA = a[sortKey]
-      const relevantValueB = b[sortKey]
+    const currentSortingDirection = sortingDirection[sortKey]
 
-      if (relevantValueA < relevantValueB) return -1
-      if (relevantValueA > relevantValueB) return 1
-      return 0
-    })
-
+    sortData(newFlattenedLocations.data, sortKey, currentSortingDirection)
+    const nextSortingDirection = getNextSortingDirection(currentSortingDirection)
+    const newSortingDirections = {...sortingDirection}
+    newSortingDirections[sortKey] = nextSortingDirection
     setLocation(newFlattenedLocations.data)
+    setSortingDirections(newSortingDirections)
   }
 
   return (
@@ -96,6 +126,9 @@ export default function Table(props) {
           )
         }) : null}
         <div>
+          <input type="text" value={inputFieldValue} onChange={(e) => {
+            setInputFieldValue(e.target.value)
+          }}/>
           <table>
             <thead>
               <tr>
@@ -107,7 +140,7 @@ export default function Table(props) {
               </tr>
             </thead>
             <tbody>
-              {location.map((element, index) => {
+              {getFilteredRows(location, inputFieldValue).map((element, index) => {
                 return <tr>
                   {Object.values(element).map((locationValue, index) => {
                     return <td key={index}> {locationValue}</td>
