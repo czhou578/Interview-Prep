@@ -8,9 +8,7 @@ const fetchData = () => {
 }
 
 const flattenObject = (obj) => {
-
   const flattened = [];
-
   for (const {street, coordinates, timezone, ...rest} of obj) {
     flattened.push({
       number: street.number,
@@ -24,7 +22,7 @@ const flattenObject = (obj) => {
   return flattened
 }
 
-const setHeaders = (obj) => {
+const setHeaders = (obj) => { //
   let array = flattenObject(obj)
   const headers = []
 
@@ -42,7 +40,7 @@ const sortingEnum = {
   DESCENDING: 'DESCENDING'
 }
 
-const sortData = (data, sortKey, sortDirection) => {
+const sortData = (data, sortKey, sortDirection) => { //sorting by formula
   data.sort((a, b) => {
     const relevantValueA = a[sortKey]
     const relevantValueB = b[sortKey]
@@ -60,6 +58,7 @@ const sortData = (data, sortKey, sortDirection) => {
   })
 }
 
+//determining what sorting direction to return
 const getNextSortingDirection = (sortingDirection) => {
   if (sortingDirection === sortingEnum.UNSORTED || sortingDirection === sortingEnum.ASCENDING) {
     return sortingEnum.DESCENDING
@@ -69,6 +68,7 @@ const getNextSortingDirection = (sortingDirection) => {
 
 }
 
+// returns the rows that satisfy the conditions
 const getFilteredRows = (rows, filterKey) => {
   return rows.filter((row) => { 
     return Object.values(row).some(s => ("" + s).toLowerCase().includes(filterKey))
