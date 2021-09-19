@@ -8,6 +8,7 @@ const fetchData = () => {
 }
 
 const flattenObject = (obj) => {
+
   const flattened = [];
 
   for (const {street, coordinates, timezone, ...rest} of obj) {
@@ -20,34 +21,69 @@ const flattenObject = (obj) => {
     })
   }
 
-  // Object.keys(obj).forEach((key) => {
-  //   if (typeof obj[key] === 'object' && obj[key] != null) {
-  //     Object.assign(flattened, flattenObject(key))
-  //   } else {
-  //     flattened[key] = obj[key]
-  //   }
-  // })
-  console.log('flattended: ' + JSON.stringify(flattened))
   return flattened
+}
+
+const setHeaders = (obj) => {
+  let array = flattenObject(obj)
+  const headers = []
+
+  for (const property in array[0]) {
+    headers.push(property)
+  }
+
+  return headers;
+
+}
+
+const sortingEnum = {
+  DEFAULT: 'DEFAULT',
+  ASCENDING: 'ASCENDING',
+  DESCENDING: 'DESCENDING'
 }
 
 
 export default function Table(props) {
   const [people, setPeople] = useState([])
+  const [locationHeaders, setLocationHeaders] = useState([])
   const [location, setLocation] = useState([])
+  const [sortingDirection, setSortingDirections] = useState()
 
   useEffect(() => {
     fetchData().then((data) => {
-      setLocation(data.map((element) => element.location))
-      flattenObject(location)
-      // data.forEach((element, index) => {     
-      //   let array = [...location, ...flattenObject(element.location)]
-      //   setLocation(array)
-      // })
-      // setLocation(flattenObject(data.location))
       setPeople(data)
+
+      // console.log('location : ' + JSON.stringify(data[0].location));
+
+      setLocationHeaders(setHeaders([data[0].location]))
+      setLocation(flattenObject(data.map((element) => element.location)))
+      // setLocationHeaders(data[0].location)
+      // setLocation(flattenObject(data.map((element) => element.location)))
+
+      // setLocation(flattenObject(people[0].location))
+
+      // flattenObject(location)
     })
   }, [])
+
+  const sortColumn = (sortKey) => {
+    console.log(sortKey);
+    const newFlattenedLocations = {
+      data: [...location]
+      // ...location
+    }
+
+    newFlattenedLocations.data.sort((a, b) => {
+      const relevantValueA = a[sortKey]
+      const relevantValueB = b[sortKey]
+
+      if (relevantValueA < relevantValueB) return -1
+      if (relevantValueA > relevantValueB) return 1
+      return 0
+    })
+
+    setLocation(newFlattenedLocations.data)
+  }
 
   return (
     <div>
@@ -56,13 +92,31 @@ export default function Table(props) {
           return (
             <div key={personIdx}>
               <p>{`${person.name.first} ${person.name.last}`}</p>
-              {/* <p>{person.location}</p> */}
             </div>
           )
         }) : null}
-        <table>
-
-        </table>
+        <div>
+          <table>
+            <thead>
+              <tr>
+                {locationHeaders.map((element, index) => {
+                  return (
+                    <th key={index} onClick={() => sortColumn(element)}> {element}</th>
+                  )
+                })}
+              </tr>
+            </thead>
+            <tbody>
+              {location.map((element, index) => {
+                return <tr>
+                  {Object.values(element).map((locationValue, index) => {
+                    return <td key={index}> {locationValue}</td>
+                  })}
+                </tr>
+              })}
+            </tbody>
+          </table>          
+        </div>
       </div>
     </div>
   )
