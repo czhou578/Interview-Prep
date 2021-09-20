@@ -100,7 +100,6 @@ export default function Table(props) {
   }, [])
 
   const sortColumn = (sortKey) => {
-    console.log(sortKey);
     const newFlattenedLocations = {
       data: [...location]
     }
@@ -108,9 +107,13 @@ export default function Table(props) {
     const currentSortingDirection = sortingDirection[sortKey]
 
     sortData(newFlattenedLocations.data, sortKey, currentSortingDirection)
+
+
     const nextSortingDirection = getNextSortingDirection(currentSortingDirection)
     const newSortingDirections = {...sortingDirection}
+
     newSortingDirections[sortKey] = nextSortingDirection
+    
     setLocation(newFlattenedLocations.data)
     setSortingDirections(newSortingDirections)
   }
