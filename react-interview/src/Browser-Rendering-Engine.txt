@@ -1,0 +1,35 @@
+How does the Browser Rendering Engine work?
+
+1. Document Object Model(DOM)
+2. CSS object model(CSSOM)
+3. Render Tree
+4. Layout
+5. Paint.
+
+DOM
+  1. Convert bytes to characters
+  2. Identify tokens
+  3. Convert tokens to nodes
+  4. Build DOM Tree
+
+CSSOM (brower blocks the page from continuing to render until this is finished)
+  1. Convert bytes to characters
+  2. Identify tokens
+  3. Convert tokens to nodes
+  4. Build CSSOM
+
+Render Tree Finishes (browser combines DOM and CSSOM into one render tree)
+
+Layout (browser has to calculate the position and sizes of each visible element on the page)
+
+Paint (browser picks up the layout result and paints the pixels to the screen)
+
+Typically, execution of javascript scripts blocks the rendering path, with two exceptions, 
+1. Inlined scripts above the css files ‘<link>’ in the ‘<head>’;
+2. Async scripts.
+
+Optimizing: 
+  minifying and compressing html and css (obfuscation: )
+  inline css only for header and main module, then async css for rest of page
+  webfonts must be async in this case 
+  
