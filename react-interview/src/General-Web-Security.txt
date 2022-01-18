@@ -16,6 +16,10 @@ STATUS CODES
 4xx - client error
 5xx - server error (ie. failed to return request)
 
+Service Workers: script that browser runs in the background separate from web page. It has for example, push notification capability, 
+and background sync. Uses promises, and is using JS, so cannot access DOM, can allow you to control how network requests are handled. 
+
+
 Headers:
   cache-control: contains instructions in both request and responses that control caching in browsers
 
@@ -30,3 +34,5 @@ Performance:
 
   Critical-Rendering-Path: time after receiving HTML, CSS, JS and the processing turning them into rendered pixels
     - 
+
+

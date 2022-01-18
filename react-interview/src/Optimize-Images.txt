@@ -1,0 +1,9 @@
+Vector vs raster graphics
+
+vector graphics are better for simple geometric shapes
+raster graphics are better for photos (PNG, JPEG, etc); zoom in will result in pixelated stuff
+
+animation - video tag
+preserve fine detail with higher resolution - PNG
+optimizing photo, screenshot - JPEG
+
