@@ -1,19 +1,27 @@
-Go modules
-
-
 
 Go vs Javascript
  - Go has two type of functions, normal and interface functions. 
- - Normal functions do not have a global this and are similar to js arrow functions, while interface functions do have
-  a this and thus are similar to regular js functions.
+ - Normal function in JS is similar to a Go function. JS class method is similar to an interface function
+ - Go closures that can reference context. 
  - Go functions can return multiple values, which is not possible in JS under conventional circumstances.
 
  - variables in same scope cannot be redeclared in GO (var in go is similar to let in js)
  - no while keyword in Go, when declaring while loops, use for. 
+ - while, for each, for in, for of, are all achievable using for keyword in Go.
  - go spread operator only works in interface arrays or slices.
  - go is static typed vs js's dynamic typing, so go is faster in performance terms
  - no ternary operator in Go
- - In switch statements, GO defaults to break after each clause, JS defaults to fall through. Fall through keyword in GO
+ - In switch statements, GO defaults to break after each clause, JS defaults to fall through. Fallthrough keyword in GO if want to Fallthrough
  - GO functions cannot hold extra attributes.
+ - Go functions have implicit returns.
 
-  (this references the global object in JS, which is the window object in web browsers)
+ Functions can be curried in both languages, and can be named or anonymous. Functions can be assigned to variables as well.
+
+Sources: https://deepu.tech/golang-for-javascript-developers-part-1/
+  https://stackoverflow.com/questions/8588563/adding-custom-properties-to-a-function
+  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator
+  https://zetcode.com/golang/interface/
+  https://stackoverflow.com/questions/45239409/empty-return-in-func-with-return-value-in-golang
+
+
+
