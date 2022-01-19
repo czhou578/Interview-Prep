@@ -36,3 +36,12 @@ Performance:
     - 
 
 
+  Preload / Preconnect / Prefetch
+
+  preload in link rel tag, specifies resources that your page needs very soon and want to start loading in page lifecycle
+  preconnect: resolves DNS and TCP handshaking
+  Prefetch: fetches resource and places it in cache for faster retrieval instead of making another full request
+
+  
+
+

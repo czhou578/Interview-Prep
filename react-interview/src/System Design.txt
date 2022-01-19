@@ -1,0 +1,20 @@
+client side rendering: using browser and JS to load pages
+server side rendering: using converted HTML files in server that is then sent to the browser
+Server-side pros:
+  Search engines can crawl the site for better SEO.
+  The initial page load is faster.
+  Great for static sites.
+Server-side cons:
+  Frequent server requests.
+  An overall slow page rendering.
+  Full page reloads.
+  Non-rich site interactions.
+Client-side pros:
+  Rich site interactions
+  Fast website rendering after the initial load.
+  Great for web applications.
+  Robust selection of JavaScript libraries.
+Client-side cons:
+  Low SEO if not implemented correctly.
+  Initial load might require more time.
+  In most cases, requires an external library.
