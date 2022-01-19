@@ -1,4 +1,19 @@
 Go modules
 
+
+
 Go vs Javascript
- - 
+ - Go has two type of functions, normal and interface functions. 
+ - Normal functions do not have a global this and are similar to js arrow functions, while interface functions do have
+  a this and thus are similar to regular js functions.
+ - Go functions can return multiple values, which is not possible in JS under conventional circumstances.
+
+ - variables in same scope cannot be redeclared in GO (var in go is similar to let in js)
+ - no while keyword in Go, when declaring while loops, use for. 
+ - go spread operator only works in interface arrays or slices.
+ - go is static typed vs js's dynamic typing, so go is faster in performance terms
+ - no ternary operator in Go
+ - In switch statements, GO defaults to break after each clause, JS defaults to fall through. Fall through keyword in GO
+ - GO functions cannot hold extra attributes.
+
+  (this references the global object in JS, which is the window object in web browsers)
