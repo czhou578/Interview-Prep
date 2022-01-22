@@ -2,17 +2,23 @@
 Go vs Javascript
  - Go has two type of functions, normal and interface functions. 
  - Normal function in JS is similar to a Go function. JS class method is similar to an interface function
- - Go closures that can reference context. 
  - Go functions can return multiple values, which is not possible in JS under conventional circumstances.
+ - GO functions cannot hold extra attributes.
+
+
+ - Go closures that can reference context.
+
+ - In switch statements, GO defaults to break after each clause, JS defaults to fall through. Fallthrough keyword in GO if want to Fallthrough
 
  - variables in same scope cannot be redeclared in GO (var in go is similar to let in js)
  - no while keyword in Go, when declaring while loops, use for. 
  - while, for each, for in, for of, are all achievable using for keyword in Go.
+
+
+ - no ternary operator in Go
  - go spread operator only works in interface arrays or slices.
  - go is static typed vs js's dynamic typing, so go is faster in performance terms
- - no ternary operator in Go
- - In switch statements, GO defaults to break after each clause, JS defaults to fall through. Fallthrough keyword in GO if want to Fallthrough
- - GO functions cannot hold extra attributes.
+
  - Go functions have implicit returns.
 
  Functions can be curried in both languages, and can be named or anonymous. Functions can be assigned to variables as well.
