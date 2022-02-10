@@ -32,9 +32,11 @@ Sources: https://deepu.tech/golang-for-javascript-developers-part-1/
 Speech Script  
 
 Conditional rendering in JS vs Go
-Type checking - forcing constraints of data types, prevent mismatching
+Type checking - forcing constraints of data types, prevent mismatching between operands in expression
+
 static typed means checking for this at compile time, while dynamic means checking at runtime
 spread syntax in JS, all elements in array or object needs to be included in a list
+
 JS functions have their own properties and methods, can add custom properties.
 var and let in JS; function vs block scoped.
 

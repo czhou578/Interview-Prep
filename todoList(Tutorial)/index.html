@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Document</title>
+</head>
+<body>
+  <h1 class="title">Things I need to do</h1>
+  <div class="all-tasks">
+    <h2 class="task-list-title"></h2>
+    <ul class="task-list" data-lists>
+      <!-- <li class="list-name active-list">Entertainment</li>
+      <li class="list-name">Work</li>
+      <li class="list-name">Groceries</li> -->
+    </ul>
+
+    <form action=""data-new-list-form>
+      <input type="text" class="new list" placeholder="new list name" aria-label="new list name"
+      data-new-list-input>
+      <button class=" btn create" aria-label="create new list">+</button>
+    </form>
+  </div>
+
+  <div class="todo-list" data-list-display-container>
+    <div class="todo-header">
+      <h2 class="list-title" data-list-title>Youtube</h2>
+      <p class="task-count" data-list-count>3 tasks remaining</p>
+    </div>
+
+    <div class="todo-body">
+      <div class="tasks" data-tasks>
+        <div class="task">
+          <input type="checkbox" id="task-1">
+          <label for="task-1">
+            <span class="custom-checkbox"></span>
+            record todo list video
+          </label>
+        </div>
+
+        <div class="task">
+          <input type="checkbox" id="task-2">
+          <label for="task-2">
+            <span class="custom-checkbox"></span>
+            record todo list video
+          </label>
+        </div>
+
+
+      </div>  
+
+      <div class="newtask-creator">
+        <form action=""data-new-task-form>
+          <input type="text" class="new task" placeholder="new task name" aria-label="new task name"
+          data-new-task-input>
+          <button class=" btn create" aria-label="create new task">+</button>
+        </form>
+      </div>
+
+      <div class="delete-stuff">
+        <button class="btn delete">Clear completed tasks</button>
+        <button class="btn delete" data-delete-list-button>Delete list</button>
+      </div>
+    </div>
+  </div>
+  <template>
+    <div class="task">
+      <input type="checkbox">
+      <label>
+        <span class="custom-checkbox"></span>
+      </label>
+    </div>
+  </template>
+</body>
+<script defer src="script.js"></script>
+
+</html>
