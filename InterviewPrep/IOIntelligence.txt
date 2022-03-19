@@ -1,0 +1,42 @@
+
+AmericanScorecard Project: 
+
+Technologies used: React, Fetch, REST, Redux RTK Query, css modules, sass, semantic ui, material ui
+
+difficulties: figuring out rtk query, also, fetch will sometimes overfetch on react rerenders, since i'm setting it in state. 
+Set data in state, trigger rerender, then set state again and repeat forever. Only set state when the array length is 0
+
+Distance Calc
+- first time learning a front end framework, using class components
+- realized how much harder looking back that was
+- firs time using a table to display data, and using axios, which is a lightweight http client
+- using firebase to host the site 
+- using promise chains to resolve data fetches, using async and await. 
+
+promises vs async and await: think of which functions can be run in parallel (then use promise.all)
+
+then is for resolving successful promise objects while .catch is for errors (promise rejected)
+
+Crypto website: 
+
+Technologies Used: HTML, CSS, SASS, lunarcrush api
+
+project elpis app
+
+- i used adobe xd to interface, deciding how components would form a logical hierarchy that would be clear to the user
+- 3 colors on a website in order to not confuse users, form a hierarchy that users would understand.
+
+- aws i used amplify (lets users build full stack applications) and dynamo db database to store users
+- also used aws and graphql schema. graphql is good because it fetches more efficiently, no overfetching, but caching is tricky
+
+- challenges of being a volunteer, unstructured work plans, always having to meet new people, people dropping out, lack of motivation
+
+- Design passion, trying to create better user experiences
+- google chrome extension, google chrome api, hardest part was to communicate back and forth, also making sure that extension would activate on all the youtube pages
+  using wildcards and regex to do that, youtube is a single page application, so navigation history is different
+
+- chrome.runtime.connect, to connect with extension and to send it messages based on url, in the content script
+- chrome.runtime.onconnect to receive connection, and execute custom css based on whatever message is received.
+
+
+
