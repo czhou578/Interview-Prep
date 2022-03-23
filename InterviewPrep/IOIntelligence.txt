@@ -45,8 +45,13 @@ GOOGLE CHROME PROJECT
 
 - chrome.runtime.connect, to connect with extension and to send it messages based on url, in the content script
 - chrome.runtime.onconnect to receive connection, and execute custom css based on whatever message is received.
+- youtube is a single page app, so upon the navigation, the front end won't request a new html page from the backend. 
 
 explain ci and cd, which has helped me continuously push changes, which i learned at school.
+
+I believe I am qualified because I have some networking experience through Tanvir's class, I am quite self motivated, and I noticed
+that your website, iointel.com, is not secure with https, which will lead to lower search rankings which makes the site vulnerable to attacks. SSL certificates (cloudflare) 
+Click on solutions webpage from another page (ex. products), leads to a server error
 
 
 
