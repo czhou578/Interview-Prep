@@ -3,7 +3,7 @@ import * as React from "react"
 import axios from 'axios';
 import Table from './Table'
 
-const increasePageNumber = (pageNum) => {
+const increasePageNumber = async (pageNum) => {
   return axios.get(`https://randomuser.me/api?page=${pageNum}`).then(({data}) => {
     return data.results
   })

@@ -1,0 +1,25 @@
+How do you troubleshoot a site that just returns a blank white screen?
+
+I would look at url to see if the url is correct, then open up the developer console to check for errors. Then I'll look at
+the network tab to see if resources are not being loaded properly. If I work with react, I would look at fallback error.
+
+What is CSS Box Model?
+
+Box model is a rectangle box that wraps around every html element. includes margin, border, and padding
+
+What happens when you type in URL?
+
+ex: https://jennapederson.dev/hello-world
+
+https: establish secure connection over TLS (encryption protocol)
+jennapederson.dev is the domain name, points to specific server's ip address
+hello-world is the path on the server to the particular resource.
+
+Browser looks up IP address for domain using DNS. Goes through many layers of cache. Once the browser gets the DNS record with the IP address,
+it’s time for it to find the server on the Internet and establish a connection.
+
+Using CDN (global cache server network), static/dynamic content gets cached closer to browser. Browser starts TCP connection with server
+
+Browser starts HTTP request (headers, metadata, and body), server sends back response in http form.
+
+
