@@ -14,6 +14,8 @@ const getUserName = (element) => {
   return `${first} ${last}`
 }
 
+
+
 function App() {
   const [counter, setCounter] = React.useState(0)
   const [userData, setFetchedUserData] = React.useState([])
@@ -57,7 +59,6 @@ function App() {
           }) : null}
         <div>
         </div>
-
         <div>
           <Table />
         </div>
