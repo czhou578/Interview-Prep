@@ -38,6 +38,8 @@ function writeReduce(arr: number[], startIndex: number) {
   return arr
 }
 
+
+
 console.log(writeReduce([1,2,3,4,5], 0));
 
 console.log(flatten(testObj))

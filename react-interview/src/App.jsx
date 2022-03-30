@@ -2,6 +2,8 @@ import './App.css';
 import * as React from "react"
 import axios from 'axios';
 import Table from './Table'
+import { Routes, Route, Link } from "react-router-dom";
+import SearchObj from './SearchObj'
 
 const increasePageNumber = async (pageNum) => {
   return axios.get(`https://randomuser.me/api?page=${pageNum}`).then(({data}) => {
@@ -36,6 +38,9 @@ function App() {
     
   return (
     <div className="App">
+      <Routes> 
+        <Route path="about" element={<SearchObj />} />
+      </Routes>
       <div>
         <div className="hello">
         </div>
