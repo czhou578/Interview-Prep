@@ -62,6 +62,7 @@ let constant = 6
 //-------------------Currying----------------
 
 //can be used to manipulate dom, trigger event listeners, create single argument functions
+//you don't have to pass in the same variable multiple times. 
 
 function favSinger(greet) {
   return function (name) {
