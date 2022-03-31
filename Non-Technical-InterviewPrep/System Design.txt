@@ -18,3 +18,53 @@ Client-side cons:
   Low SEO if not implemented correctly.
   Initial load might require more time.
   In most cases, requires an external library.
+
+
+Clarifying Question: 
+
+Some considerations:
+
+  What devices should the system support? Desktop web, mobile web, etc
+  What's the primary device that users will access the system on?
+  Which browsers should we support?
+  Do we need to support internationalization?
+  How much styling customization do we want to allow?
+
+Architecture (what components are going to be there)
+
+What to put in data model (state)
+
+  - state can change over user interactions
+  - multiple instances of one component is possible, so state of one instance should be independent
+  - cut down on unnecessary states. 
+  - lift state to parent and make subcomponents stateless if possible
+
+API Design
+
+  - what would be default for prop in react
+  - component should be open for extension but closed for modification
+  - possible lifestyle hooks
+
+UX:
+
+  - Display an empty state if there are no items in a list instead of not rendering anything
+  - Destructive actions should have a confirmation step, especially irreversible ones
+  - Disable interactive elements if they trigger an async request! Prevents double firing of events
+  - If there are search inputs involved, each keystroke should not fire a network request
+
+Performance:
+
+  - loading speed obviously
+  - js in browser is single threaded, faster component updates to the ui would help
+  - memory space
+
+Optimization: 
+
+  - lazy loading images or static assets as user scrolls
+  - preloading / prefetching data ahead of time, ex loading next img before user clicks next
+
+Accessibility: (a11y):
+
+  - aria-role, aria-label
+
+Internationalization (i18n)
