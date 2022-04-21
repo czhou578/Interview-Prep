@@ -1,0 +1,7 @@
+Assertions in GO
+
+download specific package
+
+Typical syntax: 
+
+GO assertions in networking
