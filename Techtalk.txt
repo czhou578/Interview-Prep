@@ -1,7 +1,24 @@
-Assertions in GO
+Assertions in GO, in the open source library called testify. 
+download specific package assert. 
 
-download specific package
 
-Typical syntax: 
+Assertions in Go allow you to test any assumptions that have been made in the program. 
+Ex: 123, 123 must be equal. 
+Example: Have 2 strings a and b, which are the same, so when you check this assumption, should be true.
 
-GO assertions in networking
+Each assertion statement takes in a testing.T object, which helps it write out the errors.
+Each assert function returns boolean true/false, which can help you chain multiple assertions together, if you want.
+You can write in any custom message as a parameter.
+
+Library provides GO assertions in networking (Http body, http error), can check based on different request and response results involving
+network requests.
+
+HTTPBodyContains checks if the HTTP handler function sent back contains a particular string. Handler functions are just functions to deal with HTTP requests
+HTTPError checks if the response sent back has a particular error code: 404, 200, etc.
+HTTPSuccess checks if response sent back has a success code: 200, etc.  
+
+Go vs Java assertions
+
+Java assertions have the same purpose, to check whether assumptions in code are right.
+Junit contains builtin assertion methods, like assertEquals, assertTrue, and assertNull, also can check whether arrays are equal.
+Can also take in a lambda expression in Java, which is a function without a name and returns a value (can be implemented in the body of a method)
