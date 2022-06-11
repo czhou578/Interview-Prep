@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { Input } from "semantic-ui-react";
 import "./App.css";
 import DisplayTable from "./DisplayTable";
 
 function App() {
   const [numRows, setNumRows] = useState(null);
+  const [isPending, startTransition] = useTransition()
 
   return (
     <div className="App">
